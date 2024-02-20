@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  font-family: "Inter", sans-serif;
+  position: relative;
+}
+.nav-shadow {
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+}
+.sidebar-shadow {
+  box-shadow: 0 0 27px 0 rgba(214, 231, 233, 0.52);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
