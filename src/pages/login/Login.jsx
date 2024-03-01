@@ -1,29 +1,139 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  FaGoogle,
+  FaApple,
+  FaEye,
+  FaEyeSlash,
+  FaPhoneAlt,
+} from "react-icons/fa";
+import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
+
+import { auth } from "../../firebase";
+
+import { provider } from "../../firebase";
+import toast, { Toaster } from "react-hot-toast";
 
 function Login() {
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const loginInWithUser = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        navigate("/payper/home");
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {})
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  };
+
   return (
-    <section>
+    <section className="md:w-[70%] lg:w-[50%] md:mx-auto">
       <div>
-        <h2 className="text-main-black text-3xl text-center font-semibold">
+        <h2 className="text-second-blue text-2xl md:text-3xl text-center font-semibold">
           Welcome Back
         </h2>
         <div className="flex justify-center gap-[5px] text-sm mt-[10px]">
           <p className="text-second-gray">New to Payper?</p>
-          <Link to='/register' className="text-forest-green underline font-semibold">Sign up</Link>
+          <Link
+            to="/payper/register"
+            className="text-second-blue underline font-semibold"
+          >
+            Sign up
+          </Link>
         </div>
       </div>
-      <form className="w-[50%] mx-auto mt-[50px]" action="">
+      <form className="mb-[20px]" action="">
         <div className="flex flex-col gap-[8px]">
-          <label className="text-second-gray text-sm" htmlFor="user-email">Your email adress</label>
-          <input className="rounded-[5px] p-[8px] border-2 border-third-gray hover:border-second-gray duration-500 ease-in-out outline-forest-green" type="email" name="user-email" id="" />
+          <label className="text-second-gray text-sm" htmlFor="user-email">
+            Your email adress
+          </label>
+          <input
+            className="rounded-[5px] p-[8px] border-2 border-third-gray hover:border-second-gray duration-500 ease-in-out outline-main-blue"
+            type="email"
+            name="user-email"
+            id=""
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         <div className="flex flex-col gap-[8px] my-[30px]">
-          <label className="text-second-gray text-sm" htmlFor="user-password">Your password</label>
-          <input className="rounded-[5px] p-[8px] border-2 border-third-gray hover:border-second-gray duration-500 ease-in-out outline-forest-green" type="email" name="user-password" id="" />
+          <label className="text-second-gray text-sm" htmlFor="user-password">
+            Your password
+          </label>
+          <div className="flex justify-between items-center rounded-md p-[8px] border-2 border-third-gray hover:border-second-gray duration-500 ease-in-out outline-main-blue">
+            <input
+              className="outline-none border-none flex-grow"
+              onChange={(e) => setPassword(e.target.value)}
+              type={`${showPassword ? "text" : "password"}`}
+              name="user-password"
+              id=""
+              value={password}
+            />
+            <div
+              onClick={handleTogglePassword}
+              className="text-second-gray cursor-pointer"
+            >
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </div>
+          </div>
         </div>
-        <button className="w-full p-[8px] text-forest-green text-[15px] font-semibold bg-bright-green rounded-2xl hover:bg-main-green duration-150 ease-in-out">Log in</button>
+        <button
+          onClick={loginInWithUser}
+          className="w-full p-[10px] text-white text-[15px] font-semibold bg-second-blue rounded-3xl hover:bg-main-blue duration-150 ease-in-out"
+        >
+          Login
+        </button>
       </form>
+      <Link className="text-main-black font-semibold underline">
+        Trouble logging in?
+      </Link>
+      <div className="my-[20px]">
+        <p className="mb-[20px] text-sm text-second-gray">Or log in with</p>
+        <ul className="flex gap-[20px] text-2xl">
+          <li className="w-[33%]">
+            <button
+              onClick={handleGoogleSignIn}
+              className="w-[100%] border-2 border-second-blue text-second-blue hover:text-white hover:bg-main-blue hover:border-white duration-300 flex justify-center py-[10px] rounded-lg"
+            >
+              <FaGoogle />
+            </button>
+          </li>
+          <li className="w-[33%]">
+            <button
+              onClick={() => {
+                navigate("/payper/phone-login");
+              }}
+              className="w-[100%] border-2 border-second-blue text-second-blue hover:text-white hover:bg-main-blue hover:border-white duration-300 flex justify-center py-[10px] rounded-lg"
+            >
+              <FaPhoneAlt />
+            </button>
+          </li>
+          <li className="w-[33%]">
+            <button className="w-[100%] border-2 border-second-blue text-second-blue hover:text-white hover:bg-main-blue hover:border-white duration-300 flex justify-center py-[10px] rounded-lg">
+              <FaApple />
+            </button>
+          </li>
+        </ul>
+      </div>
+      <Toaster position="top-center" reverseOrder={false} />
     </section>
   );
 }
