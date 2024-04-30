@@ -303,7 +303,7 @@ function UserCollectData() {
         <div className="m-[30px] p-[30px] border border-second-blue rounded-lg overflow-hidden">
           <div>
             <form
-              className="grid grid-cols-1 sm:grid-cols-2 justify-center gap-[20px] w-[100%] lg:w-auto"
+              className="grid grid-cols-1 sm:grid-cols-2 text-sm md:text-base justify-center gap-[20px] w-[100%] lg:w-auto"
               action=""
             >
               <div className="flex flex-col gap-[10px]">

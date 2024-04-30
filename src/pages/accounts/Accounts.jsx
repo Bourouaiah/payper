@@ -195,7 +195,7 @@ function Accounts() {
               </tbody>
             </table>
           ) : (
-            <p>No users to verify</p>
+            <p className="text-sm md:text-base my-[10px] text-center md:text-left">No users to verify</p>
           )}
         </div>
       ) : (
@@ -278,7 +278,7 @@ function Accounts() {
                 </h2>
                 <div className="bg-white p-[30px] rounded-xl flex flex-col gap-[40px]">
                   {userDoc?.transactions?.length === 0 ? (
-                    <p className="text-second-blue text-center font-semibold">
+                    <p className="text-second-blue text-center font-semibold text-sm: text-base">
                       No transactions yet!
                     </p>
                   ) : userDoc ? (
