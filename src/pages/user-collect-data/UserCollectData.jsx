@@ -106,13 +106,13 @@ function UserCollectData() {
 
   return (
     <section>
-      <h1 className="text-center text-2xl my-[20px] text-second-blue font-semibold">
+      <h1 className="text-center text-lg sm:text-xl lg:text-2xl my-[20px] text-second-blue font-semibold">
         Enter the required data please!
       </h1>
       {role == "user" || role == "cashier" ? (
-        <div className="flex flex-wrap items-center lg:flex-nowrap p-[30px] m-[30px] gap-[80px] border border-second-blue rounded-lg overflow-hidden">
-          <div className="grid grid-cols-1 gap-[20px]">
-            <div className="bg-[#4C49ED] py-[15px] px-[30px] rounded-xl min-w-[400px]">
+        <div className="flex flex-wrap items-center lg:flex-nowrap p-[30px] my-[30px] md:mx-[30px] gap-[80px] border border-second-blue rounded-lg overflow-hidden">
+          <div className="grid grid-cols-1 gap-[20px] w-full md:max-w-[400px]">
+            <div className="bg-[#4C49ED] py-[15px] px-[30px] rounded-xl">
               <div className="flex items-center justify-end">
                 <div>
                   <img src={chipCard} alt="chip-card" />
@@ -120,28 +120,28 @@ function UserCollectData() {
               </div>
               <div className="flex justify-between mt-[20px]">
                 <div>
-                  <h3 className="font-bold text-special-white">Card Holder</h3>
-                  <p className="text-white">
+                  <h3 className="font-bold text-special-white text-sm">Card Holder</h3>
+                  <p className="text-white text-sm">
                     {firstName || "******"} {lastName || "******"}
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-bold text-special-white">Pass Key</h3>
-                  <p className="text-white">{passKey}</p>
+                  <h3 className="font-bold text-special-white text-sm">Pass Key</h3>
+                  <p className="text-white text-sm">{passKey}</p>
                 </div>
               </div>
               <div className="mt-[40px] flex items-center justify-between">
-                <p className="text-white">{cardId || "**** **** **** ****"}</p>
+                <p className="text-white text-sm">{cardId || "**** **** **** ****"}</p>
                 <div>
                   <img
-                    className="w-[30px]"
+                    className="w-[20px]"
                     src={algeriePost}
                     alt="algerie-post-logo"
                   />
                 </div>
               </div>
             </div>
-            <div className="bg-white py-[15px] px-[30px] rounded-xl border min-w-[400px]">
+            <div className="bg-white py-[15px] px-[30px] rounded-xl border">
               <div className="flex items-center justify-end">
                 <div>
                   <img src={chipCardBlack} alt="chip-card" />
@@ -149,23 +149,23 @@ function UserCollectData() {
               </div>
               <div className="flex justify-between mt-[20px]">
                 <div>
-                  <h3 className="font-bold text-third-blue">Card Holder</h3>
-                  <p className="text-second-blue">
+                  <h3 className="font-bold text-third-blue text-sm">Card Holder</h3>
+                  <p className="text-second-blue text-sm">
                     {firstName || "******"} {lastName || "******"}
                   </p>
                 </div>
                 <div>
                   <h3 className="font-bold text-third-blue">Pass Key</h3>
-                  <p className="text-second-blue">{passKey}</p>
+                  <p className="text-second-blue text-sm">{passKey}</p>
                 </div>
               </div>
               <div className="mt-[40px] flex items-center justify-between">
-                <p className="text-second-blue">
+                <p className="text-second-blue text-sm">
                   {cardId || "**** **** **** ****"}
                 </p>
                 <div>
                   <img
-                    className="w-[30px]"
+                    className="w-[20px]"
                     src={algeriePost}
                     alt="algerie-post-logo"
                   />
@@ -173,9 +173,9 @@ function UserCollectData() {
               </div>
             </div>
           </div>
-          <div>
+          <div className="w-full">
             <form
-              className="grid grid-cols-1 sm:grid-cols-2 justify-center gap-[20px] w-[100%] lg:w-auto"
+              className="grid grid-cols-1 sm:grid-cols-2 text-sm md:text-base w-full justify-center gap-[20px] lg:w-auto"
               action=""
             >
               <div className="flex flex-col gap-[10px]">
@@ -237,9 +237,9 @@ function UserCollectData() {
                 >
                   Your password
                 </label>
-                <div className="flex justify-between items-center rounded-md p-[8px] border-2 border-third-gray hover:border-second-gray duration-500 ease-in-out outline-main-blue">
+                <div className="flex items-center justify-between rounded-md p-[8px] border-2 border-third-gray hover:border-second-gray duration-500 ease-in-out outline-main-blue">
                   <input
-                    className="outline-none border-none flex-grow"
+                    className="outline-none border-none w-[75%]"
                     onChange={(e) => setPassword(e.target.value)}
                     type={`${showPassword ? "text" : "password"}`}
                     name="user-password"

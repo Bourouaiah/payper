@@ -135,7 +135,7 @@ function Accounts() {
 
   if (loading) {
     return (
-      <section className="ml-[100px] lg:ml-[20%] p-[30px] bg-special-one min-h-[85vh]">
+      <section className="ml-[100px] lg:ml-[20%] p-[15px] md:p-[30px] bg-special-one min-h-[85vh]">
         <p className="text-sm md:text-base">waiting ...</p>
       </section>
     );
@@ -146,7 +146,7 @@ function Accounts() {
   }
 
   return (
-    <section className="ml-[100px] lg:ml-[20%] p-[30px] bg-special-one min-h-[85vh]">
+    <section className="ml-[100px] lg:ml-[20%] p-[15px] md:p-[30px] bg-special-one min-h-[85vh]">
       {userDoc?.role === "admin" ? (
         <div>
           <div className="flex flex-col md:flex-row gap-[10px] items-center justify-between">

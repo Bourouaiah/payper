@@ -26,13 +26,13 @@ function Sidebar({isSideBarShown}) {
       <div className="absolute w-full bottom-0 left-0 flex flex-col gap-[15px] px-[20px] pb-[20px]">
         <Link
           className="flex-grow text-center border border-main-black bg-third-gray p-[10px] rounded-2xl duration-150 ease-in-out"
-          to="/payper/login"
+          to="/payper/menu/login"
         >
           Log in
         </Link>
         <Link
           className="flex-grow text-center text-white text-[15px] font-semibold bg-second-blue p-[10px] rounded-2xl hover:bg-main-blue duration-150 ease-in-out"
-          to="/payper/register"
+          to="/payper/menu/register"
         >
           Register
         </Link>

@@ -34,7 +34,7 @@ function Login() {
         <h2 className="text-second-blue text-2xl md:text-3xl text-center font-semibold">
           Welcome Back
         </h2>
-        <div className="flex justify-center gap-[5px] text-sm mt-[10px]">
+        <div className="flex justify-center gap-[5px] text-sm my-[20px]">
           <p className="text-second-gray">New to Payper?</p>
           <Link
             to="/payper/menu/register"

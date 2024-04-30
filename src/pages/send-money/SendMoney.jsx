@@ -153,7 +153,7 @@ function SendMoney() {
 
   if (loading) {
     return (
-      <section className="ml-[100px] lg:ml-[20%] p-[30px] bg-special-one min-h-[85vh]">
+      <section className="ml-[100px] lg:ml-[20%] p-[15px] md:p-[30px] bg-special-one min-h-[85vh]">
         <p className="text-sm md:text-base">waiting ...</p>
       </section>
     );
@@ -164,7 +164,7 @@ function SendMoney() {
   }
 
   return (
-    <section className="ml-[100px] lg:ml-[20%] p-[30px] bg-special-one min-h-[85vh]">
+    <section className="ml-[100px] lg:ml-[20%] p-[15px] md:p-[30px] bg-special-one min-h-[85vh]">
       <h1 className="text-second-blue font-semibold text-lg sm:text-xl lg:text-2xl">
         Send money now!
       </h1>

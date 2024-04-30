@@ -57,7 +57,7 @@ function Settings() {
 
   if (loading) {
     return (
-      <section className="ml-[100px] lg:ml-[20%] p-[30px] bg-special-one min-h-[85vh]">
+      <section className="ml-[100px] lg:ml-[20%] p-[15px] md:p-[30px] bg-special-one min-h-[85vh]">
         <p className="text-sm md:text-base">waiting ...</p>
       </section>
     );
@@ -66,10 +66,10 @@ function Settings() {
     return <WaitCard />;
   }
   return (
-    <section className="ml-[100px] lg:ml-[20%] p-[30px] bg-special-one min-h-[85vh] text-sm md:text-base">
+    <section className="ml-[100px] lg:ml-[20%] p-[15px] md:p-[30px] bg-special-one min-h-[85vh] text-sm md:text-base">
       <form
         onSubmit={handleSubmit}
-        className="p-[20px] grid grid-cols-1 sm:grid-cols-2 justify-center gap-[20px] w-[100%] lg:w-auto"
+        className="grid grid-cols-1 sm:grid-cols-2 justify-center gap-[20px] w-[100%] lg:w-auto"
         action=""
       >
         <div className="flex flex-col gap-[10px]">
